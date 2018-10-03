@@ -2,11 +2,11 @@
     "cats": [
         {
             "nome": "Gato 1",
-            "img": "img/cat 1.jpg"
+            "img": "cat 1.jpg"
         },
         {
             "nome": "Gato 2",
-            "img": "img/cat 2.jpg"
+            "img": "cat 2.jpg"
         }
     ]
 }

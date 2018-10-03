@@ -4,9 +4,9 @@
 function initialize() {
     dbHelper.fetchCats((error, cats) => {
         if (error) {
-                console.log(error);
+            console.log(error);
         }
-        else{
+        else {
             self.cats = cats;
             fillCatsHTML();
         }
@@ -20,9 +20,8 @@ function initialize() {
 fillCatsHTML = (Cats = self.cats) => {
     const ul = document.getElementById('cats-list');
     cats.forEach(cat => {
-        ul.append(createRestaurantHTML(cat));
+        ul.append(createCatHTML(cat));
     });
-    addMarkersToMap();
 }
 
 
@@ -31,17 +30,34 @@ fillCatsHTML = (Cats = self.cats) => {
  */
 createCatHTML = (cat) => {
     const li = document.createElement('li');
+    li.setAttribute('class', 'flex-item');
 
     const image = document.createElement('img');
-
     image.className = 'cat-img';
-    image.src = DBHelper.imageUrlForCat(cat);
-    li.append(image);
+    image.alt = cat.nome
+    image.src = dbHelper.imageUrlForCat(cat);
 
-    const name = document.createElement('h1');
-    name.innerHTML = cat.name;
-    image.alt = cat.name
-    li.append(name);
+    const section = document.createElement('section');
+    section.setAttribute('class', 'flex-container');
+
+    const name = document.createElement('h2');
+    name.setAttribute('id', 'nome');
+    name.innerHTML = cat.nome;
+
+    const texto = document.createElement('h2');
+    texto.innerHTML = 'Clicks: ';
+
+    const clicks = document.createElement('h2');
+    clicks.setAttribute('id', 'Click');
+    clicks.innerHTML = 0;
+
+    li.append(image);
+    li.append(section);
+    section.append(name);
+    section.append(texto);
+    section.append(clicks);
+
+    li.setAttribute('onclick', 'Click(this)');
 
     return li
 }
@@ -49,11 +65,11 @@ createCatHTML = (cat) => {
 
 let contador = 0;
 
-function Click(params) {
-    let texto = document.getElementById('contagem');
-    contador++;
+function Click(e) {
+    let section = e.children[1];
+    let click =section.children[2] ;
 
-    texto.textContent = `Imagem clicada: ${contador} vezes.`;
+    click.innerHTML++;
 }
 
 initialize();
