@@ -7,6 +7,18 @@
         {
             "nome": "Gato 2",
             "img": "cat 2.jpg"
+        },
+        {
+            "nome": "Gato 3",
+            "img": "cat 3.jpg"
+        },
+        {
+            "nome": "Gato 4",
+            "img": "cat 4.jpg"
+        },
+        {
+            "nome": "Gato 5",
+            "img": "cat 5.jpg"
         }
     ]
 }

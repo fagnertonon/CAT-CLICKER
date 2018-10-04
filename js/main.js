@@ -67,9 +67,15 @@ let contador = 0;
 
 function Click(e) {
     let section = e.children[1];
-    let click =section.children[2] ;
+    let click = section.children[2];
 
     click.innerHTML++;
+
+    let cat = document.getElementById('catPrincipal');
+    let catAtual =  e.children[0];
+    cat.className = 'cat-img';
+    cat.alt = catAtual.alt
+    cat.src = catAtual.src;
 }
 
 initialize();
